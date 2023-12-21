@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body style="background-color: bisque;">
+
+    <div class="container py-5">
+
+        <h2 class="text-center book gradient-text">Bookmarker</h2>
+
+        <form class="bord py-5 ">
+
+            <p class="text-center fs-5 gradient-text "><i class="fa-solid fa-bookmark"></i> book your favourate book <i class="fa-solid fa-bookmark"></i></p>
+
+            <div class="mb-2">
+                <label for="productName"><i class="fa-solid fa-book"></i>  Site Name</label>
+                <input type="text" id="productName" class="form-control" name="">
+            </div>
+
+            
+            <div class="mb-2">
+                <label for="productDescription"><i class="fa-solid fa-paperclip"></i>    Site URL</label>
+                <input type="text" class="form-control" id="productDescription">
+            </div>
+
+            <button    onclick="addProduct()" type="button" class="btn btn-outline-danger w-25 mt-5 bt-2 ">submit</button>
+            
+        </form>
+
+        <input  onkeyup="searching()"  type="text" class="form-control w-50 my-5 mx-auto" placeholder="Search........." name="" id="searchInput">
+
+        <table class="table table-dark     text-center table-hover">
+            <thead>
+                <th>Index</th>
+                <th>Site Name</th>
+                <th>Visit</th>
+                <th>Delete</th>
+            </thead>
+            <tbody id="myData">
+                <!-- <tr>
+                    <td>0</td>
+                    <td>Nokia</td>
+                    <td>50000</td>
+                    <td>Mobile</td>
+                    <td>Sale</td>
+                    <td>Goooooooooood</td>
+                    <td> <button class="btn btn-warning"> Update</button> </td>
+                    <td> <button class="btn btn-danger"> Delete</button> </td>
+                </tr> -->
+             
+            </tbody>
+        </table>
+
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
