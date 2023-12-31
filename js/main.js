@@ -1,122 +1,65 @@
-// var nameInput= document.getElementById('productName')
-// var priceInput= document.getElementById('productPrice')
-// var categoryInput= document.getElementById('productCategory')
-// var saleInput= document.getElementById('productSale')
-// var descInput= document.getElementById('productDescription')
-// var productlist=[];
-// if (localStorage.getItem('productlist') !=null){
-//     productlist= JSON.parse(localStorage.getItem('productdata'))
-//     displaydata()
-// }
-
-// function addProduct(){
-//     var product={
-//         name: nameInput.value,
-//         price: priceInput.value,
-//         category: categoryInput.value,
-//         desc: descInput.value,
-//         sale: saleInput.checked
-        
-
-//     }
-//     productlist.push(product)
-//     localStorage.setItem('productData', JSON.stringify(productlist))
-//     displaydata()
-// }
-
-// function displaydata(){
-//     var temp= ''
-//         for (var i=0; i< productlist.length; i++){
-//         temp+= `<tr>
-//         <td>`+i+`</td>
-//         <td>`+productlist[i].name+`</td>
-//         <td>`+productlist[i].price+`</td>x  
-//         <td>`+productlist[i].category+`</td>
-//         <td>`+productlist[i].sale+`</td>
-//         <td>`+productlist[i].desc+`</td>
-//         <td> <button class="btn btn-warning"> Update</button> </td>
-//         <td> <button  onclick="deleteproduct(`+i+`)" class="btn btn-danger"> Delete</button> </td>
-//     </tr>`
-// }
 
 
-
-
-// document.getElementById('myData').innerHTML=temp
-// }
-
-// function deleteproduct(index){
-//         productlist.splice(index,1)
-//         localStorage.setItem('productData', JSON.stringify(productlist))
-//         displaydata()
-// }
-
-var nameInput = document.getElementById('productName')
-var descInput = document.getElementById('productDescription')
-var searchinput = document.getElementById('searchInput')
-var productlist = []
-if (localStorage.getItem('productlist') !=null){
-    productlist = JSON.parse(localStorage.getItem('productlist'))
+function redirectToNewAccount() {
+  document.getElementById("loginPage").style.display = "none";
+  document.getElementById("newAccountPage").style.display = "block";
 }
 
-console.log(productlist);
-
-function addProduct() {
-    var product ={
-        name:nameInput.value,
-        desc:descInput.value,
-        search:searchinput.value
-
-    }
-
-    productlist.push(product)
-    localStorage.setItem('productlist',  JSON.stringify(productlist))
-    showData()
-}
-
-function showData(){
-    var result = ""
-    for(i = 0; i <productlist.length ;i++){
-        result+=`<tr>
-        <td>`+i+`</td>
-        <td>`+productlist[i].name+`</td>
-        <td> <button onclick="visitWebsite()" type="button" class="btn  btn-outline-success "><i class="fas fa-eye"></i> visit</button> </td>
-        <td> <button  onclick="deleteproduct(`+i+`)"   class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</button> </td>
-    </tr>`
-    }
-
-    document.getElementById("myData").innerHTML= result
-    
-}
-
-function deleteproduct(x){
-    productlist.splice(x,1)
-    showData()
-    localStorage.setItem('productlist',  JSON.stringify(productlist))
-
-
+function redirectToLoginPage() {
+  document.getElementById("newAccountPage").style.display = "none";
+  document.getElementById("loginPage").style.display = "block";
 }
 
 
-function searching(){
-    var result = ""
-    var searchval = searchinput.value.toLowerCase()
-    console.log(searchval);
-    for (var i=0; i< productlist.length; i++){
-        if (productlist[i].name.toLowerCase().includes(searchval) == true){
-            result+=`<tr>
-            <td>`+i+`</td>
-            <td>`+productlist[i].name+`</td>
-            <td> <button onclick="visitWebsite()" type="button" class="btn  btn-outline-success "><i class="fas fa-eye"> visit</button> </td>
-            <td> <button  onclick="deleteproduct(`+i+`)"   class="btn btn-danger"> <i class="fas fa-trash-alt"></i> Delete</button> </td>
-        </tr>`
-        }
-            
-    }
-    document.getElementById("myData").innerHTML= result
+function validateEmail(email) {
+  var emailRegex = /\S+@\S+\.\S+/;
+  return emailRegex.test(email);
 }
-function visitWebsite(){
-    var url=document.getElementById("productDescription").value;
-    window.location.href= url
 
+function login(email, password) {
+  var email = document.getElementById("loginEmailInput").value;
+  var password = document.getElementById("loginPasswordInput").value;
+  let users = JSON.parse(localStorage.getItem("users"))
+  let result = users.find((el) => {
+    return el.email2 == email && el.password2 == password
+  })
+
+  if (result != -1) {
+    var username = email.substring(0, email.indexOf("@"));
+    document.getElementById("welcomeMessage").textContent = "Welcome, " + username + "!";
+    document.getElementById("loginPage").style.display = "none";
+    document.getElementById("welcomePage").style.display = "block";
+  } else {
+    alert("Invalid credentials. Please try again.");
+  }
+}
+
+
+
+
+
+var UserDataArray = []
+function redirectToLoginPage() {
+  var name = document.getElementById("nameInput").value;
+  var email2 = document.getElementById("emailInput").value;
+  var password2 = document.getElementById("passwordInput").value;
+
+  var userdata = {
+    name: name,
+    email2: email2,
+    password2: password2,
+  };
+  UserDataArray.push(userdata)
+  localStorage.setItem("users", JSON.stringify(UserDataArray))
+
+  if (name.trim() === "") {
+    alert("Please enter your name.");
+  } else if (!validateEmail(email2)) {
+    alert("Please enter a valid email address.");
+  } else if (password2.length < 8) {
+    alert("Please enter a password with at least 8 characters.");
+  } else {
+    alert("Sign up successful!");
+    window.location.href = "file:///C:/Users/adam/OneDrive/Desktop/week10/index.html";
+  }
 }

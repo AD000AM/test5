@@ -11,56 +11,47 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body style="background-color: bisque;">
+<body style="background: rgb(36, 53, 63);">
 
-    <div class="container py-5">
+  
 
-        <h2 class="text-center book gradient-text">Bookmarker</h2>
 
-        <form class="bord py-5 ">
 
-            <p class="text-center fs-5 gradient-text "><i class="fa-solid fa-bookmark"></i> book your favourate book <i class="fa-solid fa-bookmark"></i></p>
+    <!-- Login Page -->
+    <div class="container ">
+<div id="loginPage" style="display: block;" class="log mt-5  m-auto    py-5 " >
+    <div class="text-center txt fs-1 ">
+    <h3 class="fs-1">Smart Login System</h3>
+</div>
+    <input class="form-control mt-5 m-auto text-white  place " type="email" id="loginEmailInput" placeholder="Email">
+    <input  class="form-control mt-5 m-auto  place " type="password" id="loginPasswordInput" placeholder="Password">
+    <button  class="btn btn-outline-info    plc mt-5  " onclick="login()">Log In</button>
+    <br/>
+    <a href="#" onclick="redirectToNewAccount()" class="plce"> Don’t have an account? Sign Up</a>
+    
+  </div>
+</div>
 
-            <div class="mb-2">
-                <label for="productName"><i class="fa-solid fa-book"></i>  Site Name</label>
-                <input type="text" id="productName" class="form-control" name="">
-            </div>
 
-            
-            <div class="mb-2">
-                <label for="productDescription"><i class="fa-solid fa-paperclip"></i>    Site URL</label>
-                <input type="text" class="form-control" id="productDescription">
-            </div>
-
-            <button    onclick="addProduct()" type="button" class="btn btn-outline-danger w-25 mt-5 bt-2 ">submit</button>
-            
-        </form>
-
-        <input  onkeyup="searching()"  type="text" class="form-control w-50 my-5 mx-auto" placeholder="Search........." name="" id="searchInput">
-
-        <table class="table table-dark     text-center table-hover">
-            <thead>
-                <th>Index</th>
-                <th>Site Name</th>
-                <th>Visit</th>
-                <th>Delete</th>
-            </thead>
-            <tbody id="myData">
-                <!-- <tr>
-                    <td>0</td>
-                    <td>Nokia</td>
-                    <td>50000</td>
-                    <td>Mobile</td>
-                    <td>Sale</td>
-                    <td>Goooooooooood</td>
-                    <td> <button class="btn btn-warning"> Update</button> </td>
-                    <td> <button class="btn btn-danger"> Delete</button> </td>
-                </tr> -->
-             
-            </tbody>
-        </table>
-
+<!-- New Account Page -->
+<div id="newAccountPage" style="display: none;" class="log mt-4  m-auto py-5">
+    <div class="text-center txt fs-1 ">
+        <h3 class="fs-1">Smart Login System</h3>
     </div>
+  <input type="text" id="nameInput" placeholder="Enter your name" class="form-control mt-5 m-auto text-white  place ">
+  <input type="email" id="emailInput" placeholder="Enter your Email" class="form-control mt-5 m-auto text-white  place ">
+  <input type="password" id="passwordInput" placeholder="Enter your Password" class="form-control mt-5 m-auto text-white  place ">
+  <button onclick="redirectToLoginPage()" class="btn btn-outline-info    plc mt-5">Sign Up</button>
+</div>
+
+  
+  <!-- Welcome Page -->
+  <div id="welcomePage" style="display: none;" class="log mt-5 pos  m-auto py-5">
+    <h1 id="welcomeMessage" class="text-white text-center  "></h1>
+  </div>
+
+
+
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
 
