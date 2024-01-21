@@ -1,40 +1,24 @@
-
-
-.plce{
-    margin-left: 35%;
-    color: aliceblue;
-    text-decoration: none;
-
+.clr{
+    background-color: rgb(12, 12, 31);
 }
 
-.plc{
-    margin-left: 10%; 
-    margin-bottom: 7%; 
-    width: 80%
+.back-img{
+    background-image: url("../banner.png");
+    background-repeat: no-repeat;
+}
+.item{
+    background-color: #0c0c13d8;
 }
 
-.txt h3{
-    margin-right: 10%;
-    color: rgb(23, 162, 184);
+.item-footer{
+    background-color: #01010c15 !important;
 }
 
-.log{
-    background-color: rgb(36, 53, 63);
-    box-shadow: rgb(0, 0, 0) -5px 2px 54px -9px;
-    width: 70%;
-    
+
+input{
+    background-color:  #01010ca1 !important;
 }
 
-.place{
-    width: 80%;
-    background-color: transparent !important;
+::placeholder{
+    color: rgb(189, 188, 188) !important;
 }
-
-.place .placeholder{
-    color: aliceblue;
-}
-
-::placeholder {
-    color: white !important;
-  }
-

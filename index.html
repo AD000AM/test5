@@ -11,46 +11,129 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body style="background: rgb(36, 53, 63);">
+<body class="clr">
 
-  
-
-
-
-    <!-- Login Page -->
-    <div class="container ">
-<div id="loginPage" style="display: block;" class="log mt-5  m-auto    py-5 " >
-    <div class="text-center txt fs-1 ">
-    <h3 class="fs-1">Smart Login System</h3>
-</div>
-    <input class="form-control mt-5 m-auto text-white  place " type="email" id="loginEmailInput" placeholder="Email">
-    <input  class="form-control mt-5 m-auto  place " type="password" id="loginPasswordInput" placeholder="Password">
-    <button  class="btn btn-outline-info    plc mt-5  " onclick="login()">Log In</button>
-    <br/>
-    <a href="#" onclick="redirectToNewAccount()" class="plce"> Don’t have an account? Sign Up</a>
-    
-  </div>
-</div>
-
-
-<!-- New Account Page -->
-<div id="newAccountPage" style="display: none;" class="log mt-4  m-auto py-5">
-    <div class="text-center txt fs-1 ">
-        <h3 class="fs-1">Smart Login System</h3>
+  <header>
+    <nav class="navbar navbar-expand-lg">
+    <div class="container px-5">
+      <div>
+      <a class="navbar-brand ms-5" href="#"><img src="logo.png" alt=""> </a>
+      
+        
     </div>
-  <input type="text" id="nameInput" placeholder="Enter your name" class="form-control mt-5 m-auto text-white  place ">
-  <input type="email" id="emailInput" placeholder="Enter your Email" class="form-control mt-5 m-auto text-white  place ">
-  <input type="password" id="passwordInput" placeholder="Enter your Password" class="form-control mt-5 m-auto text-white  place ">
-  <button onclick="redirectToLoginPage()" class="btn btn-outline-info    plc mt-5">Sign Up</button>
-</div>
+    <p class="text-white ">weather</p>
+      
+      <div class="collapse navbar-collapse " id="navbarNav">
+        <ul class="navbar-nav ms-auto ">
+          <li class="nav-item">
+            <a class="nav-link active text-white " aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">News</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">live cameras</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white " href="#">photos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
 
-  
-  <!-- Welcome Page -->
-  <div id="welcomePage" style="display: none;" class="log mt-5 pos  m-auto py-5">
-    <h1 id="welcomeMessage" class="text-white text-center  "></h1>
+<div class="back-img">
+  <div class="app-container">
+<div class="container px-3 py-5 text-center">
+  <!--search Input-->
+<input type="text" class="w-100 mx-auto rounded-5 srch py-3 px-4  mb-5  form-control text-light  " placeholder="Find your location.." id="search" />
+
+<div class="row g-0 ">
+  <!--Today Data section-->
+<div class= "item col-md-4 bg-sec-color m-0 rounded-start  ">
+  <div class="d-flex justify-content-between py-2 px-3 bg-main-color text-light" id="today-date">
+    <p id="today_date_day_name" class="my-auto">Sunday</p> 
+    <span>
+    <span id="today_date_day_number" class="my-auto"> 30</span> 
+      <span id="today_date_month" class="my-auto"> May</span>
+    </span>
   </div>
 
+    <div class="item-content text-start px-3 py-3 pt-s text-light" id="today">
+<p id="today_location" class="fs-4">cairo</p> 
+<div class="d-flex justify-content-between align-items-center">
+<span class="fs-1 fu-bolder">
+<span id="today_temp">20</span>
+<span><sup>o</sup> C</span>
+</span>
+<img id="today_condition_img" src="113.png" alt=""/>
+</div>
+<p id="today_condition text" class="fs-6 text-bg-light-blue">sunny</p>
+    </div>
 
+    <div class="item-footer d-flex text-bg-light p-3 ">
+      <div class="d-flex me-3 ">
+        <img src="icon-umberella.png" class="footer-icons me-2 " alt=""/>
+        <p class="text-light " id="humidity">20</p>
+      </div>
+      <div class="d-flex me-3">
+        <img src="icon-wind.png" class="footer-icons mx-2" alt="">
+        <p class="text-light" id="wind"> 30 km/h</p>
+      </div>
+      <div class="d-flex">
+        <img src="icon-compass.png" class="footer-icons mx-2" alt="">
+        <p class="text-light" id="wind_direction"></p>
+      </div>
+    </div>
+</div>
+
+<!--Tomorrow Data section-->
+<div class="item col-md-4 m-0 " >
+  <div class="py-2 text-center text-light text-start" id="tomorrow-date">
+    <p class="next_day_name my-auto ">Friday</p>
+  </div>
+  <div class="item-content text-start text-light p-3 text-center pt-5" id="tomorrow">
+    <img class="next_condition_img" src="113.png" alt="">
+    <h3>
+      <span class="next_max_temp"></span>
+      <span><sup>0</sup> C</span>
+    </h3>
+    <h5 class="text-muted ">
+      <span class="next_min_temp text-light ">15</span>
+      <span class="text-light"><sup class="text-light">0</sup> C</span>
+    </h5>
+    <p class="next_condition_text fs-6 text-bg-light-blue">Partialy cloudy</p>
+  </div>
+</div>
+<!--After tomorrow Data section-->
+<div class="item col-md-4 m-0 rounded-end ">
+  <div class="py-2 text-center px-3 text-light rounded-end ">
+    <p class="next_day_name my-auto">Friday</p>
+  </div>
+  <div class="item-content text-start text-light p-3 text-center pt-5">
+    <img class="next_condition_img" src="113.png" alt="">
+    <h3>
+      <span class="next_max_temp"></span>
+      <span class="text-light " ><sup class="text-light ">0</sup> C</span>
+    </h3>
+    <h5 class="text-muted ">
+      <span class="next_min_temp text-light ">15</span>
+      <span class="text-light"><sup class="text-light">0</sup> C</span>
+    </h5>
+    <p class="next_condition_text fs-6 text-bg-light-blue">Partialy cloudy</p>
+  </div>
+</div>
+</div>
+
+</div>
+
+  </div>
+ 
+  </div>
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
